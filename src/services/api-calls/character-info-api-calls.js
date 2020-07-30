@@ -14,7 +14,7 @@ vvvv for auth when TokenService is up and running vvvvvvvvvvvv
 
 const CharacterInfoApiCalls ={
     getAllCharacters() {
-        return fetch(`${config.API_ENDPOINT}/character`)
+        return fetch(`${config.API_ENDPOINT}character`)
         .then(res => (!res.ok) 
         ?res.json().then(e=> Promise.reject(e))
         :res.json() 
@@ -23,7 +23,7 @@ const CharacterInfoApiCalls ={
     
     characterCreation(newCharacter, player_id){
         if(!player_id){player_id = 1}/*<=safety Net for now, delete later */
-    return fetch(`${config.API_ENDPOINT}/character/`,{
+    return fetch(`${config.API_ENDPOINT}character/`,{
         method: 'POST',
         headers:{
             'content-type': 'application-json',
@@ -36,7 +36,7 @@ const CharacterInfoApiCalls ={
     },
 
     getCharacter(character_id){
-        return fetch(`${config.API_ENDPOINT}/character/${character_id}`)
+        return fetch(`${config.API_ENDPOINT}character/${character_id}`)
         .then(res => (!res.ok)
             ?res.json().then(e => Promise.reject(e))
             : res.json()
@@ -44,11 +44,11 @@ const CharacterInfoApiCalls ={
     },
     
     characterUpdate(character_id, updateContent){
-        return fetch(`${config.API_ENDPOINT}/character/${character_id}`)
+        return fetch(`${config.API_ENDPOINT}character/${character_id}`)
     },
 
     characterDelete(character_id){
-        return fetch(`${config.API_ENDPOINT}/character/${character_id}`)
+        return fetch(`${config.API_ENDPOINT}character/${character_id}`)
     }
 
 }

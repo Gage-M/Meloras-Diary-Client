@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function CharacterShortContent(props){
 
-        const { character } = props
+        const { character } = props;
+        
         return (
             <div 
             key={`character-${character.id}`}

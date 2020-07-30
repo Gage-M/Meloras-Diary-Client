@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  box-sizing: border-box;
+}
+
+img{
+  height: 60px;
+  width: 60px;
+}
+
+div{
+  border: black solid thin;
+}
+
+
+
+
+
+.lvl{
+  padding : 1rem;
+  width: 25%;
+}
+
+.character-name, .race , .class{
+  padding: 1rem;
+  width: 25%;
+}
+
+.row_content.character-name{
+  font-size: 3vw;
+}
+
+.row_content.class{
+  font-size: 3vw;
+}
+
+.character__table{
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.table__header{
+  display: flex;
+}
+
+.row_wrap {
+  display: flex;
+  flex-direction: row
+}
+
+.info_cap {
+  display: flex;
+  flex-direction: row 
+}
+
+.row_content , .info_cap {
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media all  and (min-width: 600px) {
+  
+}

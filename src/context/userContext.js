@@ -22,6 +22,8 @@ export class UserPageProvider extends React.Component {
 
     setCharacterList = characterList => this.setState({characterList})
 
+    clearCharterList = () => this.setState({ characterList : [] })
+
     setError = error =>  this.setState({error})
 
     clearError = () => this.setState( {error:null} )

@@ -7,6 +7,17 @@ export default class Header extends React.Component {
         /*clear token */
     }
 
+
+    // renderUserPageLink(){
+    //     return(
+    //         <div className ='user__page__link'>
+    //             <Link
+    //             to={`/user/${authId}`}
+    //             >Your Character Page<Link>
+    //         </div>
+    //     )
+    // }
+
     renderLogoutLink(){
         return (
             <div className='Header__Logged_in'>
