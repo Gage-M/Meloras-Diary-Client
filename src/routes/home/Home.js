@@ -1,6 +1,6 @@
 import React from 'react'
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
-import UserPageContext from '../../context/userContext'
+import UserPageContext from '../../context/userContext/userContext'
 // import UserApiCalls from '../../services/api-calls/user-api-calls'
 import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
 import TableHeader from '../../components/tableHeader/TableHeader'

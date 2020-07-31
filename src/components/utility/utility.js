@@ -30,3 +30,9 @@ export function Textarea({className, ...props}) {
     )
 }
 
+export function Option({className, ...props}) { 
+    return (
+        <option className={['option', className].join(' ')} {...props}/> 
+    )
+}
+

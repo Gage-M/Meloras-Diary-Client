@@ -38,7 +38,7 @@ const CharacterInfoApiCalls ={
     getCharacter(character_id){
         return fetch(`${config.API_ENDPOINT}character/${character_id}`)
         .then(res => (!res.ok)
-            ?res.json().then(e => Promise.reject(e))
+            ? res.json().then(e => Promise.reject(e))
             : res.json()
         )
     },

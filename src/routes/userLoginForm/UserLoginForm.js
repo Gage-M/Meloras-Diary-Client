@@ -1,60 +1,28 @@
 import React from 'react'
-import {Input, Button} from '../../components/utility/utility'
-import TokenService from '../../services/TokenService';
+import LoginForm from '../../components/loginForm/LoginForm'
 
-export default class UserLoginForm extends React.Component {
-    static defaultProps = {
-        LoginSuccess : () => {} 
+
+export default class UserLoginPage extends React.Component {
+    static defaultProps ={
+        location : {},
+        history : {
+            push : () => {},
+        }
     }
 
-    state = { error : null }
-
-    handleSubmitBasicAuth = ev=> {
-        ev.preventDefault()
-        const {user_name, password } = ev.target
-
-        TokenService.saveAuthToken(
-                TokenService.makeBasicAuthToken(user_name.value, password.value)
-            )
-
-            user_name.value = ''
-            password.value = ''
-            this.props.LoginSuccess()
+    handleLoginSuccess = () =>{
+        const { location, history} = this.props
+        const destination = (location.state || {}).from || '/'
+        history.push(destination)
     }
 
     render(){
-        const {error} = this.state
-        return (
-            <form
-            className='Login_Form'
-            onSubmit={this.handleSubmitBasicAuth}
-            >
-                <div role='alert'>
-                    {error && <p className = 'oof'>{error}</p> }
-                </div>
-                <div className='user_name'>
-                    <label htmlFor='LoginForm_user_name'>
-                        User Name
-                    </label>
-                    <Input
-                        name='user_name'
-                        id='LoginForm_user_name'>
-                    </Input>
-                </div>
-                <div className='password'>
-                    <label htmlFor='LoginForm_password'>
-                        Password
-                    </label>
-                    <Input
-                        name='password'
-                        type='password'
-                        id='LoginForm_password'>
-                    </Input>
-                </div>
-                <Button type='submit'>
-                    Login
-                </Button>
-            </form>
+        return(
+            <section>
+                <h2>Login</h2>
+                <LoginForm
+                LoginSuccess={this.handleLoginSuccess}/>
+            </section>
         )
     }
 
