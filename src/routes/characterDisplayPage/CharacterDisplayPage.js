@@ -1,6 +1,7 @@
 import React from 'react'
 import UserPageContext from '../../context/userContext/userContext'
 import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
+import CharacterMainContent from '../../components/characterinfo/characterMainContent'
 
 
 export default  class CharacterDisplayPage extends React.Component {
@@ -19,9 +20,19 @@ export default  class CharacterDisplayPage extends React.Component {
             .catch(this.context.setError)
     }
 
+    componentWillUnmount(){
+        this.context.clearCharacterInfo()
+    }
+
     render(){
+       const { characterInfo } = this.context.characterInfo 
         return(
-<></>
+            <section>
+                <h3> character details </h3>
+                <CharacterMainContent
+                    character = {characterInfo}
+                />
+            </section>
         )
     }
 }

@@ -20,6 +20,7 @@ const UserPageContext = React.createContext({
     error : null,
     setError : ()=>{},
     clearError: ()=>{},
+    clearCharacterInfo: ()=> {},
     setCharacterList:()=>{},
     addCharacter: () => {}
 })
@@ -28,7 +29,7 @@ export default UserPageContext
 
 export class UserPageProvider extends React.Component {
     state = {
-        characterInfo : null,
+        characterInfo : nullCharacter,
         userInfo : {},
         characterList : [],
         error : null,
@@ -42,7 +43,7 @@ export class UserPageProvider extends React.Component {
 
     addCharacter = character => this.setCharacterList([...this.state.characterList , character])
 
-    clearCharterInfo = () => this.setCharacterInfo(nullCharacter)
+    clearCharacterInfo = () => this.setCharacterInfo(nullCharacter)
 
     clearCharterList = () => this.setState({ characterList : [] })
 
@@ -61,7 +62,7 @@ export class UserPageProvider extends React.Component {
             setCharacterInfo : this.setCharacterInfo,  
             setCharacterList : this.setCharacterList,
             addCharacter : this.addCharacter,
-            clearCharterInfo : this.clearCharterInfo,
+            clearCharacterInfo : this.clearCharacterInfo,
             clearCharterList: this.clearCharterList, 
             clearError : this.clearError
         }
