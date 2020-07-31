@@ -1,4 +1,14 @@
 import React from 'react';
+import {format as formatDate} from 'date-fns'
+
+
+export function NiceDate({ date, format='Do MMMM YYYY'}){
+    return formatDate(date, format)
+}
+
+export function Button({ className , ...props}){
+    return <button className={['Button', className].join(' ')} {...props}/>
+}
 
 export function Input({className, ...props}){
     return (
