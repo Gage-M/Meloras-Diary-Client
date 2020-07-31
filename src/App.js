@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header'
 import Home from './routes/home/Home';
+import UserLoginPage from './routes/userLoginPage/UserLoginPage';
+import CharacterCreatePage from './routes/characterCreatePage/CharacterCreatepage';
 
 
 
@@ -27,6 +29,21 @@ class App extends Component {
                 exact
                 path={'/'}
                 component={Home}
+                />
+                <Route
+                exact
+                path={'/login'}
+                component={UserLoginPage}
+                />
+                <Route
+                exact
+                path={'/sighUpForm'}
+                component
+                />
+                <Route
+                exact
+                path={'/char-Create'}
+                component={CharacterCreatePage}
                 />
               </Switch>
             </main>       

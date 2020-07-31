@@ -1,10 +1,11 @@
 import React from 'react';
 import { Input, Button, Required, Option } from '../utility/utility'
 import characterInfoApiCall from  '../../services/api-calls/character-info-api-calls'
+import TokenService from '../../services/TokenService';
 
 
 
-export default class CharacterCreator extends React.Component {
+export default class CharacterCreatorForm extends React.Component {
 
     // static defaultProps = {
     //     onCreateSuccess: () => {}
@@ -17,35 +18,44 @@ export default class CharacterCreator extends React.Component {
     handleCharacterCreateSubmit = ev => {
         ev.preventDefault()
         const { character_name,
-            race,
-            background,
-            alignment,
-            personality_traits,
-            ideals,
-            bonds,
-            flaws } = ev.target
-        const charInfo = {character_name,
-                        race,
-                        background,
-                        alignment,
-                        personality_traits,
-                        ideals,
-                        bonds,
-                        flaws}
-        const { player_id } = ''/*this.something.something.user_id*/
+                race,
+                background,
+                alignment,
+                personality_traits,
+                ideals,
+                bonds,
+                flaws } = ev.target
+
+        const charInfo = {character_name: character_name.value,
+                        race : race.value,
+                        background : background.value ,
+                        alignment : alignment.value ,
+                        personality_traits : personality_traits.value ,
+                        ideals : ideals.value ,
+                        bonds : bonds.value ,
+                        flaws :  flaws.value}
+
+                        
+
+        const { player_id } = TokenService.hasAuthToken()
+            ? ''    /*REEEE how the hell do i get User_id if there logged in *sobs* */
+            : 1 
+
         characterInfoApiCall.CharacterCreator( charInfo ,player_id)
-            .then(/*get message from api and reload start.charList...?*/)
-            .catch(/*something? */);
+            .then(this.context.addCharacter)
+            .then(() => {
+                character_name.value=''
+                race.value=''
+                background.value=''
+                alignment.value=''
+                personality_traits.value=''
+                ideals.value=''
+                bonds.value=''
+                flaws.value=''
+            })
+            .catch(this.context.setError);
             
-    player_id.value=''
-    character_name.value=''
-    race.value=''
-    background.value=''
-    alignment.value=''
-    personality_traits.value=''
-    ideals.value=''
-    bonds.value=''
-    flaws.value=''
+    
     }
 
     renderOptions(){
@@ -97,9 +107,11 @@ export default class CharacterCreator extends React.Component {
             </div>
             <div className='alignment'>
                 <label htmlFor='alignment'>Alignment</label>
-                <section id='alignment'>
+                <select
+                name='alignment' 
+                 id='alignment'>
                     {this.renderOptions()}
-                </section>
+                </select>
             </div>
             <div className='personality_traits'>
                 <label htmlFor='personality__traits'></label>

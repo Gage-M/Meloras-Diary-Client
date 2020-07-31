@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import {Input, Button} from '../utility/utility'
 import TokenService from '../../services/TokenService'
 

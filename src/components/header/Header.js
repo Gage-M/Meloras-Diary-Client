@@ -38,7 +38,7 @@ export default class Header extends React.Component {
                 </Link>
                 <span className='spacer'>{' - '}</span>
                 <Link
-                to={`/`}> {/*<= '/login' */}
+                to={`/login`}> {/*<= '/login' */}
                     Log in
                 </Link>
             </div>
