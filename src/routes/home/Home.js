@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 import UserPageContext from '../../context/userContext/userContext'
 // import UserApiCalls from '../../services/api-calls/user-api-calls'
@@ -28,10 +29,13 @@ export default class Home extends React.Component {
         
         const { characterList = [] } = this.context
         return characterList.map( char => 
+            <Link
+            to={`character/${char.id}`}>
             <CharacterShortContent
                 key={char.id}
-                character={char}
+                character = {char}
             />
+            </Link>
             )
     }
 

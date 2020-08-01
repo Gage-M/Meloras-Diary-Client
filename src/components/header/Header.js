@@ -3,20 +3,23 @@ import {Link} from 'react-router-dom';
 
 
 export default class Header extends React.Component {
+    
     handleLogoutClick = () => {
         /*clear token */
     }
 
 
-    // renderUserPageLink(){
-    //     return(
-    //         <div className ='user__page__link'>
-    //             <Link
-    //             to={`/user/${authId}`}
-    //             >Your Character Page<Link>
-    //         </div>
-    //     )
-    // }
+    renderUserPageLink(){
+        const {authId} = this.props.children.props
+        return(
+            <div>
+                <Link
+                to={`/user${authId}`}>
+                    Your Character Page
+                </Link>
+            </div>
+        )
+    }
 
     renderLogoutLink(){
         return (
@@ -38,9 +41,22 @@ export default class Header extends React.Component {
                 </Link>
                 <span className='spacer'>{' - '}</span>
                 <Link
-                to={`/login`}> {/*<= '/login' */}
+                to={`/login`}> 
                     Log in
                 </Link>
+            </div>
+        )
+    }
+
+    renderCharMakerLink(){
+        return(
+            <div>
+                <span>
+                  <Link
+                to='/char-Create'>
+                    Create A Character
+                </Link>  
+                </span>
             </div>
         )
     }
@@ -53,6 +69,7 @@ export default class Header extends React.Component {
                         Melora's-Diary
                     </Link>
                 </h1>
+                {this.renderCharMakerLink()}
                 {
                     /*when have Auth working*/
                     /*this.renderLogoutLink()*/

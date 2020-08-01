@@ -1,22 +1,18 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserPageContext from '../../context/userContext';
 import UserApiCalls from '../../services/api-calls/user-api-calls';
+import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
 import TableHeader from '../../components/tableHeader/TableHeader';
-
+import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 
 
 
 export default class UserPage extends React.Component{
 
-    // for(let [key, prop] of Object.entries({ character_info})){
-    //     if(!prop){
-    //          key = ' '; 
-    //     }
-    // }
 
     static defaultProps ={
-        match : {params : {} },
+        match : { params : {} },
     }
 
     static contextType = UserPageContext;
@@ -27,10 +23,25 @@ export default class UserPage extends React.Component{
         UserApiCalls.getUserById(user_id)
             .then(this.context.setUserInfo)
             .catch(this.context.error)
+        CharacterInfoApiCalls.getAllCharactersOfUser(user_id)
+            .then(this.context.setCharterList) 
+    }
 
+    renderUsersCharterList(){
+        const {characterList = []} = this.context
+        return characterList.map( char => 
+            <Link
+            to={`character/${char.id}`}>
+            <CharacterShortContent
+                key={char.id}
+                character = {char}
+            />
+            </Link>
+        ) 
     }
 
     render() {
+        const { characterList } = this.context
         return(
             <div className='user__page'>
                 <div className="user__info_wrapper">
@@ -43,11 +54,7 @@ export default class UserPage extends React.Component{
                 </div>
                 <div className="users_chars">
                     <TableHeader/>
-                    {/* character_info.map(char => {
-                        <CharacterShortContent
-                            character={char}
-                        /> 
-                    })*/}
+                    {this.renderUsersCharterList()}
                 </div>
             </div>
 

@@ -20,6 +20,13 @@ const CharacterInfoApiCalls ={
         :res.json() 
         )
     },
+    getAllCharactersOfUser(user_id)  {
+        return fetch(`${config.API_ENDPOINT}${user_id}/character`)
+        .then(res => (!res.ok)
+        ?res.json().then(e=> Promise.reject(e))
+        :res.json()
+        )
+    },
     
     characterCreation(newCharacter, player_id){
         if(!player_id){player_id = 1}/*<=safety Net for now, delete later */
