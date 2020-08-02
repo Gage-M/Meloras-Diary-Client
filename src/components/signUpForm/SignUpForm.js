@@ -1,8 +1,9 @@
 import React from 'react';
 import {Input, Button} from '../utility/utility'
+import ApiService from '../../services/api-calls/user-api-calls' 
 import TokenService from '../../services/TokenService'
 
-export default class LoginForm extends React.Component{
+export default class SignUpForm extends React.Component{
 
     static defaultProps = {
         createUserSuccess : () => {} 
@@ -10,18 +11,27 @@ export default class LoginForm extends React.Component{
 
     state = { error : null }
 
-    // handleSubmitBasicAuth = ev=> {
-    //     ev.preventDefault()
-    //     const {user_name, password } = ev.target
-
-    //     TokenService.saveAuthToken(
-    //             TokenService.makeBasicAuthToken(user_name.value, password.value)
-    //         )
-    //         irl_name.value=''
-    //         user_name.value = ''
-    //         password.value = ''
-    //         this.props.LoginSuccess()
-    // }
+    handleSubmitBasicAuth = ev=> {
+        ev.preventDefault()
+        const {user_name, password , irl_name} = ev.target
+        this.setState({error : null})
+        ApiService.createNewUser({
+            user_name : user_name.value,
+            password : password.value,
+            irl_name : irl_name.value
+        })
+        .then(user => {
+            irl_name.value=''
+            user_name.value = ''
+            password.value = ''
+            this.props.onRegistrationSuccess()
+        })
+        .catch(res => {
+            this.setState({error: res.error})
+        })
+            
+            
+    }
 
 
     render(){

@@ -4,6 +4,7 @@ import Header from './components/header/Header'
 import Home from './routes/home/Home';
 import UserLoginPage from './routes/userLoginPage/UserLoginPage';
 import CharacterCreatePage from './routes/characterCreatePage/CharacterCreatepage';
+import CharacterDisplayPage from './routes/characterDisplayPage/CharacterDisplayPage'
 
 
 
@@ -39,6 +40,10 @@ class App extends Component {
                 exact
                 path={'/sighUpForm'}
                 component
+                />
+                <Route
+                path={'/character/:char_id'}
+                component={CharacterDisplayPage}
                 />
                 <Route
                 exact
