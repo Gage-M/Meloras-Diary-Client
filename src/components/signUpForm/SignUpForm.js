@@ -1,7 +1,6 @@
 import React from 'react';
 import {Input, Button} from '../utility/utility'
 import ApiService from '../../services/api-calls/user-api-calls' 
-import TokenService from '../../services/TokenService'
 
 export default class SignUpForm extends React.Component{
 
@@ -24,7 +23,7 @@ export default class SignUpForm extends React.Component{
             irl_name.value=''
             user_name.value = ''
             password.value = ''
-            this.props.onRegistrationSuccess()
+            this.props.registrationSuccess()
         })
         .catch(res => {
             this.setState({error: res.error})
