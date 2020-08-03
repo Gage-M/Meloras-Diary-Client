@@ -1,6 +1,6 @@
 import React from 'react'
 import UserPageContext from '../../context/userContext/userContext'
-import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
+import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
 import CharacterMainContent from '../../components/characterinfo/characterMainContent/CharacterMainContent'
 
 
@@ -15,7 +15,7 @@ export default  class CharacterDisplayPage extends React.Component {
     componentDidMount(){
         const { char_id } = this.props.match.params
         this.context.clearError()
-        CharacterInfoApiCalls.getCharacter(char_id)
+        characterInfoApiCalls.getCharacter(char_id)
             .then(this.context.setCharacterInfo)
             .catch(this.context.setError)
     }

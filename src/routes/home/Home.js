@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 import UserPageContext from '../../context/userContext/userContext'
 // import UserApiCalls from '../../services/api-calls/user-api-calls'
-import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
+import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
 import TableHeader from '../../components/tableHeader/TableHeader'
 
 export default class Home extends React.Component {
@@ -16,7 +16,7 @@ export default class Home extends React.Component {
 
     componentDidMount(){
         this.context.clearError()
-        CharacterInfoApiCalls.getAllCharacters()
+        characterInfoApiCalls.getAllCharacters()
         .then(i => this.context.setCharacterList(i))
         .catch(this.context.setError)
     }
@@ -43,7 +43,7 @@ export default class Home extends React.Component {
         console.log(this.context)
         return (
             <div className='home__wrapper'>
-                <div class="introduction">
+                <div className="introduction">
                     <p>{"Hello and welcome to Meloras Diary, a free to use, simple(as it can get) Character creation / management system for popular tabletop RPG game Dungeons & Dragons *5th edition."}
                     </p>
                 </div>

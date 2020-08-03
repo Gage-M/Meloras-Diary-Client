@@ -1,5 +1,5 @@
 import config from '../../config';
-//import TokenService from '../TokenService'
+import TokenService from '../TokenService'
 
 
 /*
@@ -34,6 +34,7 @@ const UserApiCalls ={
         return fetch(`${config.API_ENDPOINT}/user`,{
             method : 'POST',
             headers: {
+                'authorization' : `basic ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json'
             },
             body : JSON.stringify(newUser)
@@ -49,6 +50,7 @@ const UserApiCalls ={
     },
     deleteUser(user_id){
         return fetch(`${config.API_ENDPOINT}/user`,{
+            'authorization' : `basic ${TokenService.getAuthToken()}`,
             method : 'DELETE'
         })
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserPageContext from '../../context/userContext';
 import UserApiCalls from '../../services/api-calls/user-api-calls';
-import CharacterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
+import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
 import TableHeader from '../../components/tableHeader/TableHeader';
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 
@@ -23,7 +23,7 @@ export default class UserPage extends React.Component{
         UserApiCalls.getUserById(user_id)
             .then(this.context.setUserInfo)
             .catch(this.context.error)
-        CharacterInfoApiCalls.getAllCharactersOfUser(user_id)
+        characterInfoApiCalls.getAllCharactersOfUser(user_id)
             .then(this.context.setCharterList) 
     }
 

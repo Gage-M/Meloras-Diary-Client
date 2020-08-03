@@ -48,7 +48,7 @@ export default class SignUpForm extends React.Component{
                         Real Name
                     </label>
                     <Input
-                    name='real-name'
+                    name='irl_name'
                     type='text'
                     id='irl_name'>
                     </Input>

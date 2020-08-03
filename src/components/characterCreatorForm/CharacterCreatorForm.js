@@ -1,7 +1,6 @@
 import React from 'react';
-import { Input, Button, Required, Option } from '../utility/utility'
-import characterInfoApiCall from  '../../services/api-calls/character-info-api-calls'
-import TokenService from '../../services/TokenService';
+import { Input, Button, Option } from '../utility/utility'
+import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
 
 
 
@@ -26,7 +25,8 @@ export default class CharacterCreatorForm extends React.Component {
                 bonds,
                 flaws } = ev.target
 
-        const charInfo = {character_name: character_name.value,
+        const charInfo = {
+                        character_name: character_name.value,
                         race : race.value,
                         background : background.value ,
                         alignment : alignment.value ,
@@ -34,14 +34,9 @@ export default class CharacterCreatorForm extends React.Component {
                         ideals : ideals.value ,
                         bonds : bonds.value ,
                         flaws :  flaws.value}
+                        console.log(charInfo)
 
-                        
-
-        const { player_id } = TokenService.hasAuthToken()
-            ? ''    /*REEEE how the hell do i get User_id if there logged in *sobs* */
-            : 1 
-
-        characterInfoApiCall.CharacterCreator( charInfo ,player_id)
+                characterInfoApiCalls.characterCreation(charInfo)
             .then(this.context.addCharacter)
             .then(() => {
                 character_name.value=''
@@ -90,18 +85,20 @@ export default class CharacterCreatorForm extends React.Component {
                 </Input>
             </div>
             <div className='race'>
-                <label></label>
+                <label htmlFor='race_field'> Race </label>
                 <Input
                 name='race'
                 type='text'
+                id='race_field'
                 required>
                 </Input>
             </div>
             <div className='background'>
-                <label></label>
+                <label htmlFor='background_field'> Background </label>
                 <Input
                 name='background'
                 type='text'
+                id='background_field'
                 required>
                 </Input>
             </div>
@@ -114,7 +111,7 @@ export default class CharacterCreatorForm extends React.Component {
                 </select>
             </div>
             <div className='personality_traits'>
-                <label htmlFor='personality__traits'></label>
+                <label htmlFor='personality__traits'>Personality Traits</label>
                 <Input
                 name='personality_traits'
                 type='text'
@@ -123,7 +120,7 @@ export default class CharacterCreatorForm extends React.Component {
                 </Input>
             </div>
             <div className='ideals'>
-                <label htmlFor='ideal'></label>
+                <label htmlFor='ideal'> Ideals </label>
                 <Input
                 name='ideals'
                 type='text'
@@ -132,7 +129,7 @@ export default class CharacterCreatorForm extends React.Component {
                 </Input>
             </div>
             <div className='bonds'>
-                <label htmlFor='bond'>Bond</label>
+                <label htmlFor='bond'> Bond </label>
                 <Input
                 name='bonds'
                 type='text'
@@ -141,7 +138,7 @@ export default class CharacterCreatorForm extends React.Component {
                 </Input>
             </div>
             <div className='flaws'>
-                <label htmlFor='flaw'>Flaw</label>
+                <label htmlFor='flaw'> Flaw </label>
                 <Input
                 name='flaws'
                 type='text'
