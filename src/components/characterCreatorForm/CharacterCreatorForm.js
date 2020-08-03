@@ -34,7 +34,6 @@ export default class CharacterCreatorForm extends React.Component {
                         ideals : ideals.value ,
                         bonds : bonds.value ,
                         flaws :  flaws.value}
-                        console.log(charInfo)
 
                 characterInfoApiCalls.characterCreation(charInfo)
             .then(this.context.addCharacter)

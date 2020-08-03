@@ -1,20 +1,36 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import UserPageContext from '../../context/userContext/userContext';
+import TokenService from '../../services/TokenService';
+import UserApiCalls from '../../services/api-calls/user-api-calls';
+
 
 
 export default class Header extends React.Component {
+
+    static contextType = UserPageContext
+
+    componentDidMount(){
+        UserApiCalls.getUserById()
+            .then(this.context.setUserInfo)
+            .catch(e => console.error(e))
+
+    }
+
+    
     
     handleLogoutClick = () => {
-        /*clear token */
+        TokenService.clearAuthToken()
     }
 
 
     renderUserPageLink(){
-        const {authId} = this.props.children.props
+        const { userInfo } = this.context
+        console.log(userInfo)
         return(
             <div>
                 <Link
-                to={`/user${authId}`}>
+                to={`/user/${userInfo.id}`}>
                     Your Character Page
                 </Link>
             </div>
@@ -69,11 +85,12 @@ export default class Header extends React.Component {
                         Melora's-Diary
                     </Link>
                 </h1>
+                {this.renderUserPageLink()}
                 {this.renderCharMakerLink()}
                 {
-                    /*when have Auth working*/
-                    /*this.renderLogoutLink()*/
-                    this.renderLoginLink()
+                    TokenService.hasAuthToken()
+                    ? this.renderCharMakerLink() && this.renderUserPageLink && this.renderLogoutLink()
+                    : this.renderLoginLink()
                 }
             </nav>
         )

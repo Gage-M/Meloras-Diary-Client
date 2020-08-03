@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserPageContext from '../../context/userContext';
+import UserPageContext from '../../context/userContext/userContext';
 import UserApiCalls from '../../services/api-calls/user-api-calls';
 import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
 import TableHeader from '../../components/tableHeader/TableHeader';
@@ -18,6 +18,7 @@ export default class UserPage extends React.Component{
     static contextType = UserPageContext;
 
     componentDidMount(){
+
         const { user_id } = this.props.match.params
         this.context.clearError()
         UserApiCalls.getUserById(user_id)
@@ -41,19 +42,21 @@ export default class UserPage extends React.Component{
     }
 
     render() {
-        const { characterList } = this.context
+        const { userInfo } = this.context
+        const  {user_name, date_created }= userInfo
         return(
             <div className='user__page'>
                 <div className="user__info_wrapper">
-                    {/* <img 
-                    src='' 
-                    alt={user_name}/> */}
-                    <span className='user__name'>{/*user_info.user_name */ '[user_name here]' }</span>
-                <span className='users__start__date'>{/*user_info.date_created*/ ' [start date here]'}</span>
-                <span className='proffered__class'>{/*would need DB update[again] for user_info.pro_class */ '[user\'s proffered class]'}</span>    
+                    <img 
+                    src='img/test-pfp.jpg' 
+                    alt={user_name}/>
+                    <span className='user__name'>{user_name}</span>
+                <span className='users__start__date'>{date_created}</span>
+                <span className='proffered__class'>{'*add column for this....lol sigh*'}</span>    
                 </div>
                 <div className="users_chars">
-                    <TableHeader/>
+                    <TableHeader
+                    />
                     {this.renderUsersCharterList()}
                 </div>
             </div>

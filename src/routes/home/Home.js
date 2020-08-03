@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 import UserPageContext from '../../context/userContext/userContext'
-// import UserApiCalls from '../../services/api-calls/user-api-calls'
+import UserApiCalls from '../../services/api-calls/user-api-calls'
 import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
 import TableHeader from '../../components/tableHeader/TableHeader'
+import areYouWinning from '../../components/utility/are-you-winning-son'
+
 
 export default class Home extends React.Component {
 
@@ -15,6 +17,7 @@ export default class Home extends React.Component {
     static contextType = UserPageContext
 
     componentDidMount(){
+        areYouWinning()
         this.context.clearError()
         characterInfoApiCalls.getAllCharacters()
         .then(i => this.context.setCharacterList(i))
@@ -40,7 +43,6 @@ export default class Home extends React.Component {
     }
 
     render(){
-        console.log(this.context)
         return (
             <div className='home__wrapper'>
                 <div className="introduction">

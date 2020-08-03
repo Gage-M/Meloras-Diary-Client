@@ -5,8 +5,9 @@ import Home from './routes/home/Home';
 import UserLoginPage from './routes/userLoginPage/UserLoginPage';
 import CharacterCreatePage from './routes/characterCreatePage/CharacterCreatepage';
 import CharacterDisplayPage from './routes/characterDisplayPage/CharacterDisplayPage'
-
-
+import PublicRoute from './components/utility/PublicRoute'
+import PrivateRoute from './components/utility/PrivateRoute'
+import UserPage from './routes/userPage/UserPage'
 
 class App extends Component {
 
@@ -31,12 +32,12 @@ class App extends Component {
                 path={'/'}
                 component={Home}
                 />
-                <Route
+                <PublicRoute
                 exact
                 path={'/login'}
                 component={UserLoginPage}
                 />
-                <Route
+                <PublicRoute
                 exact
                 path={'/sighUpForm'}
                 component
@@ -45,11 +46,15 @@ class App extends Component {
                 path={'/character/:char_id'}
                 component={CharacterDisplayPage}
                 />
-                <Route
+                <PrivateRoute
                 exact
                 path={'/char-Create'}
                 component={CharacterCreatePage}
                 />
+                <PrivateRoute
+                path={`user/:user_id`}
+                component={UserPage}/>
+
               </Switch>
             </main>       
           </div>

@@ -26,7 +26,6 @@ export default  class CharacterDisplayPage extends React.Component {
 
     render(){
         const { characterInfo } = this.context 
-        console.log(this.context)
         return(
             <section>
                 <h3> character details </h3>

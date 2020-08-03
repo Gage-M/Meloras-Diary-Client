@@ -15,7 +15,7 @@ vvvv for auth when TokenService is up and running vvvvvvvvvvvv
 const UserApiCalls ={
     /*for Admin use only*/
     getAllUser(){  
-        return fetch(`${config.API_ENDPOINT}/user`)
+        return fetch(`${config.API_ENDPOINT}user`)
             .then(res => 
                 (res.ok)
                 ?  res.json().them(e=> Promise.reject(e))
@@ -23,7 +23,11 @@ const UserApiCalls ={
                 )
     },
     getUserById(user_id){
-        return fetch(`${config.API_ENDPOINT}/user/${user_id}`)
+        return fetch(`${config.API_ENDPOINT}user/authKey`, {
+            headers : {
+                'authorization' : `basic ${TokenService.getAuthToken()}`
+            }
+        })
             .then(res => 
                 (!res.ok)
                 ? res.json().then(e=> Promise.reject(e))
@@ -31,7 +35,7 @@ const UserApiCalls ={
                 )
     },
     createNewUser(newUser){
-        return fetch(`${config.API_ENDPOINT}/user`,{
+        return fetch(`${config.API_ENDPOINT}user`,{
             method : 'POST',
             headers: {
                 'authorization' : `basic ${TokenService.getAuthToken()}`,
@@ -49,7 +53,7 @@ const UserApiCalls ={
 
     },
     deleteUser(user_id){
-        return fetch(`${config.API_ENDPOINT}/user`,{
+        return fetch(`${config.API_ENDPOINT}user`,{
             'authorization' : `basic ${TokenService.getAuthToken()}`,
             method : 'DELETE'
         })
