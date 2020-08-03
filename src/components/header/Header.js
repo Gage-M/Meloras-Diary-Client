@@ -85,8 +85,6 @@ export default class Header extends React.Component {
                         Melora's-Diary
                     </Link>
                 </h1>
-                {this.renderUserPageLink()}
-                {this.renderCharMakerLink()}
                 {
                     TokenService.hasAuthToken()
                     ? this.renderCharMakerLink() && this.renderUserPageLink && this.renderLogoutLink()
