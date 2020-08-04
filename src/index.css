@@ -1,10 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&family=Mirza&display=swap');
+
+
+/*
+/============FONT ============/
+font-family: 'El Messiri', sans-serif; <= body
+font-family: 'Mirza', cursive; <=header
+/===================================/
+
+
+/=========================/
+/====== COLOR ============/
+red (for header)  #ab0421
+light yellow/gold (main borders) #dbcb86
+bond (background) #ddcfc5
+old paper (background) #927350
+body font #080c15
+*/
+
 body {
+  padding: 1vw;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #927350;
 }
 
 code {
@@ -16,62 +37,157 @@ code {
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
+div{
+  background-color: #ddcfc5;
+  border: black solid thin;
+  border-radius: .9vw;
+}
+
+/*====================================================================================================*/
+/***********************************************HEADER************************************************/
+/*====================================================================================================*/
+
+.link{
+  font-family: 'El Messiri', sans-serif; ;
+  color: #080c15;
+}
+
+.meloras_root{
+  font-family: 'Mirza', cursive;
+  color: #ab0421;
+}
+
+
+.header_wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.render_links{
+  display: flex;
+  justify-content: space-around;
+  border: none;
+}
+
+.user_page{
+
+}
+
+.character_creator{
+
+}
+
+.header_logout{
+
+}
+
+.header_login{
+  
+}
+
+
+
+
+/*===============================================================================================================================================*/
+/*===========================================================USER PAGE =========================================================================*/
+/*===============================================================================================================================================*/
+
+
+
+
+
 img{
   height: 60px;
   width: 60px;
 }
 
-div{
-  border: black solid thin;
-}
+/*=================================================================================================================================================*/
+
+/*=================================================================================================================================================*/
+/*=========================================================CHARACTER TABLE=========================================================================*/
+/*=================================================================================================================================================*/
 
 
 
 
-
-.lvl{
-  padding : 1rem;
+.character_name, .race , .background, .alignment{
+  padding: 0.1rem;
   width: 25%;
-}
-
-.character-name, .race , .class{
-  padding: 1rem;
-  width: 25%;
-}
-
-.row_content.character-name{
   font-size: 3vw;
+  text-align: center;
 }
 
-.row_content.class{
-  font-size: 3vw;
+.row-content , .info_cap {
+  margin: 0.5vmin;
 }
 
 .character__table{
   display: flex;
   flex-direction: column;
   width: 100%; 
+  font-family: 'El Messiri', sans-serif ;
+  color: #080c15;
 }
 
 .table__header{
   display: flex;
 }
 
-.row_wrap {
+.row__wrapper {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 }
 
 .info_cap {
-  display: flex;
-  flex-direction: row 
+  font-family: 'Mirza', cursive ;
 }
 
 .row_content , .info_cap {
   display: flex;
   flex-direction: row;
 }
+/*==============================================================================================================================================*/
 
+
+/*===============================================================================================================================================*/
+/*==================================================CHARACTER CREATOR============================================================================*/
+/*===============================================================================================================================================*/
+
+.form_wrap{
+  border: none;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+.p_an_b_form{
+  margin: .25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form{
+  padding: .5 rem;
+  align-self: center;
+  width: 95%;;
+}
+
+.personality_form{
+  height: 5rem;
+  /* width: 46vmax; */
+}
+/*================================================================================================================================================*/
+
+/*================================================================================================================================================*/
+/*=========================================================CHARACTER DETAILS======================================================================*/
+/*================================================================================================================================================*/
+
+
+
+/*===============================================================================================================================================*/
 
 @media all  and (min-width: 600px) {
   

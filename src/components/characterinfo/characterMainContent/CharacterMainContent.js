@@ -25,10 +25,10 @@ export default class CharacterMainContent extends React.Component {
                     <p>{character.alignment}</p> 
                 </div>
                 <div className='char_personality'>
-                    <p>{character.personality_traits}</p>
-                    <p>{character.ideals}</p>
-                    <p>{character.bonds}</p>
-                    <p>{character.flaws}</p>
+                    <span>Personality Traits - </span><p>{character.personality_traits}</p>
+                    <span>Ideals - </span><p>{character.ideals}</p>
+                    <span>Bonds - </span><p>{character.bonds}</p>
+                    <span>Flaws - </span><p>{character.flaws}</p>
                 </div>
             </>
         )

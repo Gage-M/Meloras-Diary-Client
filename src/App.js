@@ -52,9 +52,8 @@ class App extends Component {
                 component={CharacterCreatePage}
                 />
                 <PrivateRoute
-                path={`user/:user_id`}
+                path={`/user/:user_id`}
                 component={UserPage}/>
-
               </Switch>
             </main>       
           </div>

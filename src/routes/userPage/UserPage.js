@@ -18,19 +18,26 @@ export default class UserPage extends React.Component{
     static contextType = UserPageContext;
 
     componentDidMount(){
-
         const { user_id } = this.props.match.params
         this.context.clearError()
         UserApiCalls.getUserById(user_id)
             .then(this.context.setUserInfo)
             .catch(this.context.error)
         characterInfoApiCalls.getAllCharactersOfUser(user_id)
-            .then(this.context.setCharterList) 
+            .then(this.context.setCharacterList) 
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount(){
+        this.context.clearError();
+        this.context.clearCharterList();
     }
 
     renderUsersCharterList(){
+        console.log(this.context.characterList)
         const {characterList = []} = this.context
         return characterList.map( char => 
+            <div key={char.id}>
             <Link
             to={`character/${char.id}`}>
             <CharacterShortContent
@@ -38,6 +45,7 @@ export default class UserPage extends React.Component{
                 character = {char}
             />
             </Link>
+            </div>
         ) 
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import UserPageContext from '../../context/userContext/userContext';
 import TokenService from '../../services/TokenService';
 import UserApiCalls from '../../services/api-calls/user-api-calls';
@@ -7,6 +7,11 @@ import UserApiCalls from '../../services/api-calls/user-api-calls';
 
 
 export default class Header extends React.Component {
+
+    static defaultProps = {
+        location : {},
+        history : {} 
+    }
 
     static contextType = UserPageContext
 
@@ -21,15 +26,19 @@ export default class Header extends React.Component {
     
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
+        window.location.reload()
+        return <Redirect to={'/'}/>
+        
     }
 
 
     renderUserPageLink(){
         const { userInfo } = this.context
-        console.log(userInfo)
+        
         return(
-            <div>
+            <div className='user_page'>
                 <Link
+                className='char_page link'
                 to={`/user/${userInfo.id}`}>
                     Your Character Page
                 </Link>
@@ -39,8 +48,9 @@ export default class Header extends React.Component {
 
     renderLogoutLink(){
         return (
-            <div className='Header__Logged_in'>
+            <div className='header_logout'>
                 <Link
+                className='logout link'
                 onClick={this.handleLogoutClick}
                 to='/'>
                 Logout
@@ -50,15 +60,17 @@ export default class Header extends React.Component {
     }
     renderLoginLink() { 
         return (
-            <div>
+            <div className='header_login'>
                 <Link
+                className='registration link'
                 to='/register'>
                     Register
                 </Link>
                 <span className='spacer'>{' - '}</span>
                 <Link
+                className='login link'
                 to={`/login`}> 
-                    Log in
+                    Login
                 </Link>
             </div>
         )
@@ -66,10 +78,11 @@ export default class Header extends React.Component {
 
     renderCharMakerLink(){
         return(
-            <div>
+            <div className='character_creator'>
                 <span>
                   <Link
-                to='/char-Create'>
+                  className='character_creation link'
+                    to='/char-Create'>
                     Create A Character
                 </Link>  
                 </span>
@@ -77,20 +90,36 @@ export default class Header extends React.Component {
         )
     }
 
-    render() {
+    renderPackage(){
         return(
-            <nav>
+            <>
+            {this.renderCharMakerLink()}
+            {this.renderUserPageLink()}
+            {this.renderLogoutLink()}
+            </>
+        )
+    }
+
+    render() {
+        
+
+        return(
+            <div className='header_wrapper'>
                 <h1>
-                    <Link to='/'>
+                    <Link
+                    className='meloras_root link'
+                    to='/'>
                         Melora's-Diary
                     </Link>
                 </h1>
+                <div className='render_links'>
                 {
                     TokenService.hasAuthToken()
-                    ? this.renderCharMakerLink() && this.renderUserPageLink && this.renderLogoutLink()
+                    ?  this.renderPackage() 
                     : this.renderLoginLink()
                 }
-            </nav>
+                </div>
+            </div>
         )
     }
 

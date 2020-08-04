@@ -2,10 +2,11 @@ import React from 'react';
 import {Input, Button} from '../utility/utility'
 import TokenService from '../../services/TokenService'
 
+
 export default class LoginForm extends React.Component{
 
     static defaultProps = {
-        LoginSuccess : () => {} 
+        loginSuccess : () => {} 
     }
 
     state = { error : null }
@@ -19,7 +20,7 @@ export default class LoginForm extends React.Component{
             )
             user_name.value = ''
             password.value = ''
-            this.props.LoginSuccess()
+            this.props.loginSuccess()
     }
 
 

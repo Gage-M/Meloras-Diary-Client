@@ -3,6 +3,7 @@ import LoginForm from '../../components/loginForm/LoginForm'
 
 
 export default class UserLoginPage extends React.Component {
+    
     static defaultProps ={
         location : {},
         history : {
@@ -10,23 +11,20 @@ export default class UserLoginPage extends React.Component {
         }
     }
 
-    handleLoginSuccess = () =>{
-        const { location, history} = this.props
+    handleLoginSuccess = () => {
+        const { location, history } = this.props
+        console.log(this.props)
         const destination = (location.state || {}).from || '/'
-        history.push(destination)
-    }
+        history.push("/")
+      }
 
     render(){
         return(
             <section>
                 <h2>Login</h2>
                 <LoginForm
-                LoginSuccess={this.handleLoginSuccess}/>
+                loginSuccess={this.handleLoginSuccess}/>
             </section>
         )
     }
-
-    
-
-
 }

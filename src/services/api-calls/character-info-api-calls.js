@@ -25,11 +25,15 @@ const characterInfoApiCalls ={
         )
     },
     getAllCharactersOfUser(user_id)  {
-        return fetch(`${config.API_ENDPOINT}${user_id}/character`,{
+        return fetch(`${config.API_ENDPOINT}user/${user_id}/character`,{
             headers : {
+                'content-type': 'application/json',
                 'authorization' : `basic ${TokenService.getAuthToken()}`,
             },
         })
+        .then(a =>{ 
+            console.log(a) 
+            return a})
         .then(res => (!res.ok)
         ?res.json().then(e=> Promise.reject(e))
         :res.json()
