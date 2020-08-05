@@ -25,7 +25,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #927350;
+  background-image: url('./img/paper_background.jpeg');
+}
+
+.App_Wrap{
+  background-image: url('./img/white_paper_background.jpeg');
 }
 
 code {
@@ -39,13 +43,10 @@ code {
 
 a{
   text-decoration: none;
+  color: #080c15;
 }
 
-div{
-  background-color: #ddcfc5;
-  border: black solid thin;
-  border-radius: .9vw;
-}
+
 
 /*====================================================================================================*/
 /***********************************************HEADER************************************************/
@@ -59,6 +60,7 @@ div{
 .meloras_root{
   font-family: 'Mirza', cursive;
   color: #ab0421;
+  
 }
 
 
@@ -71,10 +73,15 @@ div{
   display: flex;
   justify-content: space-around;
   border: none;
+  margin-bottom: 1vh;
 }
 
-.user_page{
+.user_page ,.character_creator , .header_logout, .header_login{
+  border: none;
+}
 
+.app_header{
+  border-bottom: black solid thin ;
 }
 
 .character_creator{
@@ -89,8 +96,24 @@ div{
   
 }
 
+/*==============================================================================================================================================*/
+/*=========================================================== HOME PAGE ========================================================================*/
+/*==============================================================================================================================================*/
 
 
+.home__wrapper,.character__table, .table__header  {
+  border: none;
+}
+
+.table_row{
+  background-color: rgb(196, 193, 189);
+}
+
+
+
+
+
+/*==============================================================================================================================================*/
 
 /*===============================================================================================================================================*/
 /*===========================================================USER PAGE =========================================================================*/
@@ -125,7 +148,12 @@ img{
   margin: 0.5vmin;
 }
 
+.row-content{
+  background-color: #ccc8c5;
+}
+
 .character__table{
+  
   display: flex;
   flex-direction: column;
   width: 100%; 
@@ -137,7 +165,12 @@ img{
   display: flex;
 }
 
+.table_row{
+  border: none;
+}
+
 .row__wrapper {
+  border: none;
   display: flex;
   flex-direction: row;
 }
@@ -184,6 +217,23 @@ img{
 /*================================================================================================================================================*/
 /*=========================================================CHARACTER DETAILS======================================================================*/
 /*================================================================================================================================================*/
+
+.Character_full{
+  margin: 5vw;
+}
+
+div.Character_full > h4{
+  text-align: center;
+}
+
+.char_personality{
+  border: none;
+  overflow-wrap: break-word;
+}
+
+.details{
+  margin: 5px;
+}
 
 
 

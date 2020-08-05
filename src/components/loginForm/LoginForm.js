@@ -1,6 +1,7 @@
 import React from 'react';
 import {Input, Button} from '../utility/utility'
 import TokenService from '../../services/TokenService'
+import UserPageContext from '../../context/userContext/userContext';
 
 
 export default class LoginForm extends React.Component{
@@ -11,16 +12,19 @@ export default class LoginForm extends React.Component{
 
     state = { error : null }
 
+    static contextType = UserPageContext;
+
     handleSubmitBasicAuth = ev=> {
         ev.preventDefault()
         const {user_name, password } = ev.target
-
         TokenService.saveAuthToken(
             TokenService.makeBasicAuthToken(user_name.value, password.value)
             )
             user_name.value = ''
             password.value = ''
+            this.context.setIsLoggedIn(true)
             this.props.loginSuccess()
+         
     }
 
 

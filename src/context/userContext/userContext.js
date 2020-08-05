@@ -18,11 +18,13 @@ const UserPageContext = React.createContext({
     userInfo : {},
     characterList : [],
     error : null,
+    isLoggedIn:  false,
     setError : ()=>{},
     clearError: ()=>{},
     clearCharacterInfo: ()=> {},
     setCharacterList:()=>{},
-    addCharacter: () => {}
+    addCharacter: () => {}, 
+    setIsLoggedIn: () => {}
 })
 
 export default UserPageContext
@@ -51,12 +53,16 @@ export class UserPageProvider extends React.Component {
 
     clearError = () => this.setState( {error:null} )
 
+    setIsLoggedIn = isLoggedIn => this.setState({ isLoggedIn })
+
     render(){
         const value = {
+            isLoggedIn : this.state.isLoggedIn,
             characterInfo: this.state.characterInfo, 
             userInfo : this.state.userInfo,
             characterList : this.state.characterList,
             error : this.state.error,
+            setIsLoggedIn : this.setIsLoggedIn,
             setError : this.setError,
             setUserInfo : this.setUserInfo,
             setCharacterInfo : this.setCharacterInfo,  

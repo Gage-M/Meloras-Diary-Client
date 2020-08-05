@@ -21,14 +21,30 @@ export default class CharacterMainContent extends React.Component {
             <>
                 <h4>{character.character_name}</h4>
                 <div className='char_background'>
-                    <span>{character.race}</span><span>{character.background}</span>
-                    <p>{character.alignment}</p> 
+                    <div className='race_dis details'>
+                        <span>Race - </span><span>{character.race}</span>
+                    </div>
+                    <div className='background_dis details'>
+                        <span>Background - </span><span>{character.background}</span>
+                    </div>
+                    <div className='alignment_dis details'>
+                        <span>Alignment - </span><span>{character.alignment}</span> 
+                    </div>
                 </div>
                 <div className='char_personality'>
-                    <span>Personality Traits - </span><p>{character.personality_traits}</p>
-                    <span>Ideals - </span><p>{character.ideals}</p>
-                    <span>Bonds - </span><p>{character.bonds}</p>
-                    <span>Flaws - </span><p>{character.flaws}</p>
+                    <div className='personality_traits_dis details'>
+                        <span>Personality Traits - </span><p>{character.personality_traits}</p>
+                    </div>
+                    <div className='ideals_dis details'>
+                        <span>Ideals - </span><p>{character.ideals}</p>
+                    </div>
+                    <div className='bonds_dis details'>
+                        <span>Bonds - </span><p>{character.bonds}</p>
+                    </div>
+                    <div className='flaws_dis details'>
+                        <span>Flaws - </span><p>{character.flaws}</p>
+                    </div>
+                
                 </div>
             </>
         )

@@ -5,6 +5,7 @@ import UserApiCalls from '../../services/api-calls/user-api-calls';
 import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls';
 import TableHeader from '../../components/tableHeader/TableHeader';
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
+import testpfp from '../../img/testpfp.jpg'  
 
 
 
@@ -56,7 +57,7 @@ export default class UserPage extends React.Component{
             <div className='user__page'>
                 <div className="user__info_wrapper">
                     <img 
-                    src='img/test-pfp.jpg' 
+                    src={testpfp} 
                     alt={user_name}/>
                     <span className='user__name'>{user_name}</span>
                 <span className='users__start__date'>{date_created}</span>

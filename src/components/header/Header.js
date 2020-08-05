@@ -10,7 +10,9 @@ export default class Header extends React.Component {
 
     static defaultProps = {
         location : {},
-        history : {} 
+        history : {
+            push : () => {}
+        } 
     }
 
     static contextType = UserPageContext
@@ -25,10 +27,10 @@ export default class Header extends React.Component {
     
     
     handleLogoutClick = () => {
+        this.props.history.push('/')
         TokenService.clearAuthToken()
-        window.location.reload()
-        return <Redirect to={'/'}/>
-        
+        this.context.setIsLoggedIn(false)
+        //window.location.reload()
     }
 
 

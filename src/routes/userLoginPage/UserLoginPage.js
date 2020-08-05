@@ -15,7 +15,7 @@ export default class UserLoginPage extends React.Component {
         const { location, history } = this.props
         console.log(this.props)
         const destination = (location.state || {}).from || '/'
-        history.push("/")
+        history.push(destination)
       }
 
     render(){

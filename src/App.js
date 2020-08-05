@@ -8,7 +8,7 @@ import CharacterDisplayPage from './routes/characterDisplayPage/CharacterDisplay
 import PublicRoute from './components/utility/PublicRoute'
 import PrivateRoute from './components/utility/PrivateRoute'
 import UserPage from './routes/userPage/UserPage'
-
+import UserCharacterDisplayPage from './routes/userCharacterDisplayPage/UserCharacterDisplayPage'
 class App extends Component {
 
   state = { hasError : null }
@@ -52,8 +52,12 @@ class App extends Component {
                 component={CharacterCreatePage}
                 />
                 <PrivateRoute
+                exact
                 path={`/user/:user_id`}
                 component={UserPage}/>
+                 <PrivateRoute
+                path={`/user/character/:char_id`}
+                component={UserCharacterDisplayPage}/>
               </Switch>
             </main>       
           </div>
