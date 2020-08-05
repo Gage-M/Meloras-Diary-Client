@@ -31,9 +31,6 @@ const characterInfoApiCalls ={
                 'authorization' : `basic ${TokenService.getAuthToken()}`,
             },
         })
-        .then(a =>{ 
-            console.log(a) 
-            return a})
         .then(res => (!res.ok)
         ?res.json().then(e=> Promise.reject(e))
         :res.json()
@@ -73,9 +70,10 @@ const characterInfoApiCalls ={
 
     characterDelete(character_id){
         return fetch(`${config.API_ENDPOINT}character/${character_id}`,{
+            method : 'DELETE',
             headers : {
                 'authorization' : `basic ${TokenService.getAuthToken()}`,
-            },
+            }
         })
     }
 

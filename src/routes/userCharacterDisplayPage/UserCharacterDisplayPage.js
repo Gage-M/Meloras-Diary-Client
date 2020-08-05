@@ -31,8 +31,11 @@ export default  class CharacterDisplayPage extends React.Component {
 
     handelDelete = () =>{
         const { char_id } = this.props.match.params
-        console.log(this.props)
-        // characterInfoApiCalls.characterDelete(char_id)
+        characterInfoApiCalls.characterDelete(char_id)
+            .catch(this.context.setError);
+        characterInfoApiCalls.getAllCharacters(char_id)
+            .then(this.context.setCharacterInfo)
+            .catch(this.context.setError)
             this.props.history.goBack();
     }
 
@@ -42,7 +45,9 @@ export default  class CharacterDisplayPage extends React.Component {
             <section>
                 <h3> character details </h3>
                 
-                <Button>back</Button>
+                <Button>
+                    back
+                </Button>
                 
                 <CharacterMainContent
                     character = {characterInfo}

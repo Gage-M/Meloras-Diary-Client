@@ -6,6 +6,7 @@ import characterInfoApiCalls from '../../services/api-calls/character-info-api-c
 import TableHeader from '../../components/tableHeader/TableHeader';
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 import testpfp from '../../img/testpfp.jpg'  
+import { NiceDate } from '../../components/utility/utility'
 
 
 
@@ -35,7 +36,6 @@ export default class UserPage extends React.Component{
     }
 
     renderUsersCharterList(){
-        console.log(this.context.characterList)
         const {characterList = []} = this.context
         return characterList.map( char => 
             <div key={char.id}>
@@ -50,18 +50,34 @@ export default class UserPage extends React.Component{
         ) 
     }
 
+    // formatDate = (date) => {
+    //     toString(date).split(/\T/).unshift()
+    // }
+
     render() {
         const { userInfo } = this.context
         const  {user_name, date_created }= userInfo
+
+
         return(
             <div className='user__page'>
                 <div className="user__info_wrapper">
                     <img 
                     src={testpfp} 
                     alt={user_name}/>
-                    <span className='user__name'>{user_name}</span>
-                <span className='users__start__date'>{date_created}</span>
-                <span className='proffered__class'>{'*add column for this....lol sigh*'}</span>    
+                <div className='user__info'>
+                    <div className='user__name_wrap'>
+                        <span>user name - </span>
+                        <span className='user__name'>{user_name}</span>
+                    </div>
+                    <div className='start__date_wrap'>
+                        <span>date_created - </span>
+                        <span className='users__start__date'>{date_created}</span>
+                    </div>
+
+                    
+                </div>
+                       
                 </div>
                 <div className="users_chars">
                     <TableHeader

@@ -28,9 +28,7 @@ body {
   background-image: url('./img/paper_background.jpeg');
 }
 
-.App_Wrap{
-  background-image: url('./img/white_paper_background.jpeg');
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -45,6 +43,8 @@ a{
   text-decoration: none;
   color: #080c15;
 }
+
+.Main_App{background-image: url('./img/white_paper_background.jpeg');}
 
 
 
@@ -72,12 +72,11 @@ a{
 .render_links{
   display: flex;
   justify-content: space-around;
-  border: none;
   margin-bottom: 1vh;
 }
 
 .user_page ,.character_creator , .header_logout, .header_login{
-  border: none;
+ font-style: bold; 
 }
 
 .app_header{
@@ -101,12 +100,21 @@ a{
 /*==============================================================================================================================================*/
 
 
+.introduction{
+  background-color: #ccc8c5;
+  padding: 20px; 
+}
+
+.introduction > p {
+  margin: 0 ;
+
+}
+
 .home__wrapper,.character__table, .table__header  {
-  border: none;
 }
 
 .table_row{
-  background-color: rgb(196, 193, 189);
+  background-image:url('./img/white_paper_background.jpeg');
 }
 
 
@@ -119,9 +127,13 @@ a{
 /*===========================================================USER PAGE =========================================================================*/
 /*===============================================================================================================================================*/
 
+.user__page{
+  font-family: 'El Messiri', sans-serif; 
+}
 
-
-
+.user__info_wrapper{
+  background-image: url('./img/white_paper_background.jpeg');
+}
 
 img{
   height: 60px;
@@ -140,7 +152,7 @@ img{
 .character_name, .race , .background, .alignment{
   padding: 0.1rem;
   width: 25%;
-  font-size: 3vw;
+  font-size: 3.5vw;
   text-align: center;
 }
 
@@ -166,11 +178,10 @@ img{
 }
 
 .table_row{
-  border: none;
+
 }
 
 .row__wrapper {
-  border: none;
   display: flex;
   flex-direction: row;
 }
@@ -191,10 +202,8 @@ img{
 /*===============================================================================================================================================*/
 
 .form_wrap{
-  border: none;
   display: flex;
   flex-direction: column;
-  border: none;
 }
 .p_an_b_form{
   margin: .25rem;
@@ -220,6 +229,7 @@ img{
 
 .Character_full{
   margin: 5vw;
+  
 }
 
 div.Character_full > h4{
@@ -227,7 +237,6 @@ div.Character_full > h4{
 }
 
 .char_personality{
-  border: none;
   overflow-wrap: break-word;
 }
 
@@ -240,5 +249,10 @@ div.Character_full > h4{
 /*===============================================================================================================================================*/
 
 @media all  and (min-width: 600px) {
-  
+  .Main_App{
+    margin: 50px;
+  }
+  .character_name, .race , .background, .alignment{
+    font-size: 2vh;
+  }
 }
