@@ -1,9 +1,9 @@
 import React from 'react';
-import {format as formatDate} from 'date-fns'
 
-
-export function NiceDate({ date, format='Do MMMM YYYY'}){
-    return formatDate(date, format)
+export function NiceDate(date){
+    const unixDate = Date.parse(date)
+    const norDate = new Date(unixDate)
+    return `${norDate.getMonth()+1}/${norDate.getDate()}/${norDate.getFullYear()}`
 }
 
 export function Button({ className , ...props}){

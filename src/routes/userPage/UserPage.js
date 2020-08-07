@@ -32,7 +32,6 @@ export default class UserPage extends React.Component{
 
     componentWillUnmount(){
         this.context.clearError();
-        this.context.clearCharterList();
     }
 
     renderUsersCharterList(){
@@ -57,7 +56,7 @@ export default class UserPage extends React.Component{
     render() {
         const { userInfo } = this.context
         const  {user_name, date_created }= userInfo
-
+        const formattedDate = NiceDate(date_created);
 
         return(
             <div className='user__page'>
@@ -67,15 +66,13 @@ export default class UserPage extends React.Component{
                     alt={user_name}/>
                 <div className='user__info'>
                     <div className='user__name_wrap'>
-                        <span>user name - </span>
+                        <span className='user_label'>user name - </span>
                         <span className='user__name'>{user_name}</span>
                     </div>
                     <div className='start__date_wrap'>
-                        <span>date_created - </span>
-                        <span className='users__start__date'>{date_created}</span>
+                        <span className='user_label'>date_created - </span>
+                        <span className='users__start__date'>{formattedDate}</span>
                     </div>
-
-                    
                 </div>
                        
                 </div>

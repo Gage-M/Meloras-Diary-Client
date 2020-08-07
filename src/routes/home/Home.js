@@ -23,9 +23,6 @@ export default class Home extends React.Component {
         .catch(this.context.setError)
     }
 
-    componentWillUnmount(){
-        this.context.clearCharterList()
-    }
 
     renderCharterList(){
         

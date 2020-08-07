@@ -7,10 +7,11 @@ export const nullCharacter ={
     race : null ,
     background : null,
     alignment : null,
+    gender : null,
     personality_traits : null ,
     ideals : null ,
-    bonds : null ,
-    flaws : null 
+    fears : null ,
+    notes : null 
  }
 
 const UserPageContext = React.createContext({

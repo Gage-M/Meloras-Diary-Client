@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserPageContext from '../../context/userContext/userContext';
 import TokenService from '../../services/TokenService';
 import UserApiCalls from '../../services/api-calls/user-api-calls';

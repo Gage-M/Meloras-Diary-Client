@@ -44,7 +44,10 @@ a{
   color: #080c15;
 }
 
-.Main_App{background-image: url('./img/white_paper_background.jpeg');}
+.Main_App{
+  background-image: url('./img/white_paper_background.jpeg');
+  padding: 1vh;
+}
 
 
 
@@ -76,7 +79,7 @@ a{
 }
 
 .user_page ,.character_creator , .header_logout, .header_login{
- font-style: bold; 
+  font-weight: bolder;
 }
 
 .app_header{
@@ -101,25 +104,17 @@ a{
 
 
 .introduction{
-  background-color: #ccc8c5;
   padding: 20px; 
 }
 
 .introduction > p {
   margin: 0 ;
-
+  font-family: 'El Messiri', sans-serif;
 }
 
 .home__wrapper,.character__table, .table__header  {
+
 }
-
-.table_row{
-  background-image:url('./img/white_paper_background.jpeg');
-}
-
-
-
-
 
 /*==============================================================================================================================================*/
 
@@ -136,8 +131,15 @@ a{
 }
 
 img{
-  height: 60px;
-  width: 60px;
+  height: 10vh;
+  width: 10vh;
+  border-radius: 10vh;
+}
+
+.user_label{
+  font-size: 2vh;
+  font-weight: bolder;
+  color: #ab0421;
 }
 
 /*=================================================================================================================================================*/
@@ -158,6 +160,11 @@ img{
 
 .row-content , .info_cap {
   margin: 0.5vmin;
+}
+
+.info_cap{
+  font-weight: bolder;
+  color: #080c15;
 }
 
 .row-content{
@@ -229,19 +236,33 @@ img{
 
 .Character_full{
   margin: 5vw;
-  
+}
+
+section > h3 {
+  font-size: 3vh;
+  font-family: 'Mirza', cursive ;
+  text-align: center;
 }
 
 div.Character_full > h4{
   text-align: center;
+  font-size: 4vh;
 }
 
 .char_personality{
   overflow-wrap: break-word;
+  font-size: 2vh;
+  font-family: 'El Messiri', sans-serif;
 }
 
 .details{
   margin: 5px;
+}
+
+.char_per_details{
+  font-family: 'Mirza', cursive ;
+  color: #ab0421;
+  font-size:  24px;
 }
 
 

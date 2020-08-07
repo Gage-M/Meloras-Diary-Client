@@ -8,10 +8,11 @@ export default class CharacterMainContent extends React.Component {
             race : null ,
             background : null,
             alignment : null,
+            gender: null,
             personality_traits : null ,
             ideals : null ,
-            bonds : null ,
-            flaws : null
+            fears : null ,
+            notes : null
         }
     }
 
@@ -22,27 +23,30 @@ export default class CharacterMainContent extends React.Component {
                 <h4>{character.character_name}</h4>
                 <div className='char_background'>
                     <div className='race_dis details'>
-                        <span>Race - </span><span>{character.race}</span>
+                        <span className='char_per_details'>Race - </span><span>{character.race}</span>
                     </div>
                     <div className='background_dis details'>
-                        <span>Background - </span><span>{character.background}</span>
+                        <span className='char_per_details'>Background/Role - </span><span>{character.background}</span>
                     </div>
                     <div className='alignment_dis details'>
-                        <span>Alignment - </span><span>{character.alignment}</span> 
+                        <span className='char_per_details'>Alignment - </span><span>{character.alignment}</span> 
+                    </div>
+                    <div className='gender_dis details'>
+                        <span className='char_per_details'>Gender - </span><span>{character.gender}</span> 
                     </div>
                 </div>
                 <div className='char_personality'>
                     <div className='personality_traits_dis details'>
-                        <span>Personality Traits - </span><p>{character.personality_traits}</p>
+                        <span className='char_per_details'>Personality Traits - </span><p>{character.personality_traits}</p>
                     </div>
                     <div className='ideals_dis details'>
-                        <span>Ideals - </span><p>{character.ideals}</p>
+                        <span className='char_per_details'>Ideals - </span><p>{character.ideals}</p>
                     </div>
-                    <div className='bonds_dis details'>
-                        <span>Bonds - </span><p>{character.bonds}</p>
+                    <div className='fears_dis details'>
+                        <span className='char_per_details'>fears - </span><p>{character.fears}</p>
                     </div>
-                    <div className='flaws_dis details'>
-                        <span>Flaws - </span><p>{character.flaws}</p>
+                    <div className='notes_dis details'>
+                        <span className='char_per_details'>Notes - </span><p>{character.notes}</p>
                     </div>
                 
                 </div>

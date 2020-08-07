@@ -39,22 +39,25 @@ export default  class CharacterDisplayPage extends React.Component {
             this.props.history.goBack();
     }
 
+
+    handelBackUp = () => {
+        this.props.history.goBack();
+    }
+
     render(){
         const { characterInfo } = this.context 
         return(
             <section>
                 <h3> character details </h3>
-                
-                <Button>
-                    back
-                </Button>
-                
                 <CharacterMainContent
                     character = {characterInfo}
                 />
                 <Button
                 onClick={this.handelDelete}
                 >Delete</Button>
+                <Button onClick={this.handelBackUp}>
+                    back
+                </Button>
             </section>
         )
     }

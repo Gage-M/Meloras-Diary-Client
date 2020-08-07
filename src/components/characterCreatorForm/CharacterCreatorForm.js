@@ -20,20 +20,22 @@ export default class CharacterCreatorForm extends React.Component {
                 race,
                 background,
                 alignment,
+                gender,
                 personality_traits,
                 ideals,
-                bonds,
-                flaws } = ev.target
+                fears,
+                notes } = ev.target
 
         const charInfo = {
                         character_name: character_name.value,
                         race : race.value,
                         background : background.value ,
                         alignment : alignment.value ,
+                        gender : gender.value, 
                         personality_traits : personality_traits.value ,
                         ideals : ideals.value ,
-                        bonds : bonds.value ,
-                        flaws :  flaws.value}
+                        fears : fears.value ,
+                        notes :  notes.value}
 
                 characterInfoApiCalls.characterCreation(charInfo)
             .then(this.context.addCharacter)
@@ -42,19 +44,34 @@ export default class CharacterCreatorForm extends React.Component {
                 race.value=''
                 background.value=''
                 alignment.value=''
+                gender.value=''
                 personality_traits.value=''
                 ideals.value=''
-                bonds.value=''
-                flaws.value=''
+                fears.value=''
+                notes.value=''
             })
             .catch(this.context.setError);
             
     
     }
 
-    renderOptions(){
+    renderAlignmentOptions(){
         const alignmentOptions = ['Lawful-Good','Neutral-Good','Chaotic-Good','Lawful-Neutral','Neutral','Chaotic-Neutral','Lawful-Evil','Neutral-Evil','Chaotic-Evil',]
         return alignmentOptions.map( (ali , i) => {
+           return( 
+               <Option
+                    key={i}
+                    name={ali}
+                    value={ali}>
+                    {`${ali}`}
+                </Option>
+           ) 
+        })
+    }
+
+    renderGenderOptions(){
+        const genderOptions = ['Male','Female','Other']
+        return genderOptions.map( (ali , i) => {
            return( 
                <Option
                     key={i}
@@ -96,7 +113,7 @@ export default class CharacterCreatorForm extends React.Component {
                         </Input>
                     </div>
                     <div className=' p_an_b_form background_form'>
-                        <label htmlFor='background_field'> Background </label>
+                        <label htmlFor='background_field'> Background/role </label>
                         <Input
                         name='background'
                         type='text'
@@ -109,7 +126,15 @@ export default class CharacterCreatorForm extends React.Component {
                         <select
                         name='alignment' 
                          id='alignment'>
-                            {this.renderOptions()}
+                            {this.renderAlignmentOptions()}
+                        </select>
+                    </div>
+                    <div className=' p_an_b_form gender_form'>
+                        <label htmlFor='gender'>Gender</label>
+                        <select
+                        name='gender' 
+                         id='gender'>
+                            {this.renderGenderOptions()}
                         </select>
                     </div>
                 </div>
@@ -134,21 +159,21 @@ export default class CharacterCreatorForm extends React.Component {
                         required>
                         </Textarea>
                     </div>
-                    <div className='p_an_b_form bonds_form '>
+                    <div className='p_an_b_form fears_form '>
                         <label htmlFor='bond'> Bond </label>
                         <Textarea
                         className='personality_form'
-                        name='bonds'
+                        name='fears'
                         type='text'
                         id='bond'
                         required>
                         </Textarea>
                     </div>
-                    <div className='p_an_b_form flaws_form'>
+                    <div className='p_an_b_form notes_form'>
                         <label htmlFor='flaw'> Flaw </label>
                         <Textarea
                         className='personality_form'
-                        name='flaws'
+                        name='notes'
                         type='text'
                         id='flaw'
                         required>
