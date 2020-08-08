@@ -2,7 +2,7 @@ import React from 'react'
 import UserPageContext from '../../context/userContext/userContext'
 import characterInfoApiCalls from '../../services/api-calls/character-info-api-calls'
 import CharacterMainContent from '../../components/characterinfo/characterMainContent/CharacterMainContent'
-
+import './charactersDisplayPage.css'
 
 export default  class CharacterDisplayPage extends React.Component {
 

@@ -1,0 +1,30 @@
+.Character_full{
+    margin: 5vw;
+  }
+  
+  section > h3 {
+    font-size: 3vh;
+    font-family: 'Mirza', cursive ;
+    text-align: center;
+  }
+  
+  div.Character_full > h4{
+    text-align: center;
+    font-size: 4vh;
+  }
+  
+  .char_personality{
+    overflow-wrap: break-word;
+    font-size: 2vh;
+    font-family: 'El Messiri', sans-serif;
+  }
+  
+  .details{
+    margin: 5px;
+  }
+  
+  .char_per_details{
+    font-family: 'Mirza', cursive ;
+    color: #ab0421;
+    font-size:  24px;
+  }

@@ -4,6 +4,7 @@ import characterInfoApiCalls from '../../services/api-calls/character-info-api-c
 import CharacterMainContent from '../../components/characterinfo/characterMainContent/CharacterMainContent'
 // import { Link } from 'react-router-dom'
 import { Button } from '../../components/utility/utility'
+import './userCharacterDisplayPage.css'
 
 
 export default  class CharacterDisplayPage extends React.Component {

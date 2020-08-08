@@ -1,0 +1,78 @@
+/*=========================================================================================================*/
+/*======================================CHARACTER TABLE====================================================*/
+/*=========================================================================================================*/
+.character_name, .race , .background, .alignment{
+    padding: 0.1rem;
+    width: 25%;
+    font-size: 3.5vw;
+    text-align: center;
+  }
+  
+  .row-content , .info_cap {
+    margin: 0.5vmin;
+  }
+  
+  .info_cap{
+    font-weight: bolder;
+    color: #080c15;
+  }
+  
+  .row-content{
+    background-color: #ccc8c5;
+  }
+  
+  .character__table{
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    font-family: 'El Messiri', sans-serif ;
+    color: #080c15;
+  }
+  
+  .table__header{
+    display: flex;
+  }
+  
+  .table_row{
+  
+  }
+  
+  .row__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .info_cap {
+    font-family: 'Mirza', cursive ;
+  }
+  
+  .row_content , .info_cap {
+    display: flex;
+    flex-direction: row;
+  }
+
+  
+/*===============================================================================================================================================*/
+/*===========================================================USER PAGE =========================================================================*/
+/*===============================================================================================================================================*/
+
+.user__page{
+    font-family: 'El Messiri', sans-serif; 
+  }
+  
+  .user__info_wrapper{
+    background-image: url('../../img/white_paper_background.jpeg');
+  }
+  
+  img{
+    height: 10vh;
+    width: 10vh;
+    border-radius: 10vh;
+  }
+  
+  .user_label{
+    font-size: 2vh;
+    font-weight: bolder;
+    color: #ab0421;
+  }

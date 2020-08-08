@@ -7,7 +7,7 @@ import TableHeader from '../../components/tableHeader/TableHeader';
 import CharacterShortContent from '../../components/characterinfo/characterShortContent/CharacterShortContent'
 import testpfp from '../../img/testpfp.jpg'  
 import { NiceDate } from '../../components/utility/utility'
-
+import './userPage.css'
 
 
 export default class UserPage extends React.Component{
@@ -70,7 +70,7 @@ export default class UserPage extends React.Component{
                         <span className='user__name'>{user_name}</span>
                     </div>
                     <div className='start__date_wrap'>
-                        <span className='user_label'>date_created - </span>
+                        <span className='user_label'>Date created - </span>
                         <span className='users__start__date'>{formattedDate}</span>
                     </div>
                 </div>

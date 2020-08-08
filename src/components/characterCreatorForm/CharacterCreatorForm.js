@@ -6,9 +6,12 @@ import characterInfoApiCalls from '../../services/api-calls/character-info-api-c
 
 export default class CharacterCreatorForm extends React.Component {
 
-    // static defaultProps = {
-    //     onCreateSuccess: () => {}
-    // }
+    static defaultProps = {
+        onCreateSuccess: () => {},
+        history : {
+            goBack: () => {} 
+        }
+    }
 
     state = { error : null}
 
@@ -52,7 +55,7 @@ export default class CharacterCreatorForm extends React.Component {
             })
             .catch(this.context.setError);
             
-    
+            this.props.props.history.goBack();
     }
 
     renderAlignmentOptions(){
@@ -160,7 +163,7 @@ export default class CharacterCreatorForm extends React.Component {
                         </Textarea>
                     </div>
                     <div className='p_an_b_form fears_form '>
-                        <label htmlFor='bond'> Bond </label>
+                        <label htmlFor='bond'> Fear </label>
                         <Textarea
                         className='personality_form'
                         name='fears'
@@ -170,12 +173,12 @@ export default class CharacterCreatorForm extends React.Component {
                         </Textarea>
                     </div>
                     <div className='p_an_b_form notes_form'>
-                        <label htmlFor='flaw'> Flaw </label>
+                        <label htmlFor='notes'> Notes </label>
                         <Textarea
                         className='personality_form'
                         name='notes'
                         type='text'
-                        id='flaw'
+                        id='notes'
                         required>
                         </Textarea>
                     </div>

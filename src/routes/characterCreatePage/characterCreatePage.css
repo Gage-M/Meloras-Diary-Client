@@ -1,0 +1,25 @@
+.form_wrap{
+    display: flex;
+    flex-direction: column;
+  }
+  .p_an_b_form{
+    margin: .25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form{
+    padding: .5 rem;
+    align-self: center;
+    width: 95%;;
+  }
+  
+  .personality_form{
+    height: 5rem;
+    /* width: 46vmax; */
+  }
+  
+  textarea{
+    font-family: 'El Messiri', sans-serif ;
+    font-size: 2.3vh;
+  }

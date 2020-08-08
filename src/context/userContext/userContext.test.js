@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import userContext from './userContext'
+import {UserPageProvider} from './userContext'
 
 
 
 
-it.only('renders with out crashing', () => {
+it('renders with out crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<userContext/>, div);
+    ReactDOM.render(
+    <UserPageProvider>
+            <div>
+            </div>
+    </UserPageProvider>
+    
+    , div);
     ReactDOM.unmountComponentAtNode(div);
 });
