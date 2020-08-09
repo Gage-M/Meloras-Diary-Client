@@ -2,14 +2,7 @@ import config from '../../config'
 import TokenService from '../TokenService'
 
 /*
-/==============================================================/
-vvvv for auth when TokenService is up and running vvvvvvvvvvvv
-,{
-            headers : {
-                'authorization' : `basic ${TokenService.getAuthToken()}`,
-            },
-        }
-/=============================================================/        
+api call object 
 */
 
 const characterInfoApiCalls ={
