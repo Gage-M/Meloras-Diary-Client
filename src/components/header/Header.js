@@ -63,12 +63,16 @@ export default class Header extends React.Component {
     renderLoginLink() { 
         return (
             <div className='header_login'>
-                <Link
+                {/*
+
+                    ### TODO finish register when i have time, since it wasn't a requirement but i would like it done  ###
+                 <Link
                 className='registration link'
                 to='/register'>
                     Register
-                </Link>
-                <span className='spacer'>{' - '}</span>
+                </Link> 
+                */}
+                {/* <span className='spacer'>{' - '}</span> */}
                 <Link
                 className='login link'
                 to={`/login`}> 
